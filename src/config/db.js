@@ -1,7 +1,15 @@
 const { Pool } = require('pg');
 const fs = require('fs');
+const path = require('path');
 
-const caCert = fs.readFileSync('CAcertificate.crt');
+const caCertPath = path.join(__dirname, 'CAcertificate.crt');
+let caCert;
+try {
+    caCert = fs.readFileSync(caCertPath);
+} catch (error) {
+    console.error('Error reading CA certificate:', error.message);
+    process.exit(1);
+}
 
 const pool = new Pool({
   host: process.env.DB_HOST,
