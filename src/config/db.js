@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 const fs = require('fs');
 
-const caCert = fs.readFileSync('src/config/CAcertificate.crt');
+const caCert = fs.readFileSync('CAcertificate.crt');
 
 const pool = new Pool({
   host: process.env.DB_HOST,
