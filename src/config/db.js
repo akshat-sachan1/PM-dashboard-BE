@@ -4,7 +4,6 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL
 });
 
-// Database initialization queries
 const initDb = async () => {
   const createUsersTable = `
     CREATE TABLE IF NOT EXISTS users (

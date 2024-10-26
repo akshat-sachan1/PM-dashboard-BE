@@ -8,12 +8,10 @@ const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-// Initialize database
 initDb();
 
 // Routes
